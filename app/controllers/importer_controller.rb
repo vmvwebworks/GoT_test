@@ -3,9 +3,7 @@ class ImporterController < ApplicationController
   end
 
   def upload
-    CSV.parse(params[:csv].read, csv_options) do |row|
-      # TODO
-    end
+    @csv = SmarterCSV.process(params[:csv].tempfile)
   end
 
   private

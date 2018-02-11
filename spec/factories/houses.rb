@@ -17,7 +17,7 @@
 #  updated_at  :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :house do
     name { Faker::GameOfThrones.house }
     description { Faker::Lorem.paragraphs.join("\n") }
