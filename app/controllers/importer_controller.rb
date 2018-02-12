@@ -1,8 +1,8 @@
 class ImporterController < ApplicationController
+  include CharacterMock
   def form
   end
   def upload
-    @csv = SmarterCSV.process(params[:csv].tempfile)
-    @fields = Character.fields
+    import_create
   end
 end

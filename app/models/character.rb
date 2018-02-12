@@ -1,50 +1,8 @@
 
 class Character < ApplicationRecord
-  belongs_to :house, inverse_of: :characters
-  has_many :images, as: :imageable, inverse_of: :imageable
-
+  belongs_to :house
+  has_many :images
   validates :name, :description, presence: true
-  def self.fields
-    [
-      "name",
-      "description",
-      "biography",
-      "personality",
-      "seasons",
-      "titles",
-      "status",
-      "death",
-      "origin",
-      "allegiance",
-      "culture",
-      "religion",
-      "predecessor",
-      "successor",
-      "father",
-      "mother",
-      "spouse",
-      "children",
-      "siblings",
-      "lovers",
-      "image_1_src",
-      "image_1_caption",
-      "image_2_src",
-      "image_2_caption",
-      "image_3_src",
-      "image_3_caption",
-      "image_4_src",
-      "image_4_caption",
-      "image_5_src",
-      "image_5_caption",
-      "image_6_src",
-      "image_6_caption",
-      "image_7_src",
-      "image_7_caption",
-      "image_8_src",
-      "image_8_caption",
-      "house"
-    ]
-  end
 end
 # == Schema Information
 #

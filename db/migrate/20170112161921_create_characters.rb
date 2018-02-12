@@ -3,8 +3,8 @@ class CreateCharacters < ActiveRecord::Migration[5.0]
     create_table :characters do |t|
       t.string :name
       t.references :house, foreign_key: true
-      t.string :description
-      t.string :biography
+      t.text :description
+      t.text :biography
       t.string :personality
       t.string :titles
       t.string :status

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112162805) do
+ActiveRecord::Schema.define(version: 20180212171405) do
 
-  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "house_id"
-    t.string   "description"
-    t.string   "biography"
+    t.text     "description",         limit: 65535
+    t.text     "biography",           limit: 65535
     t.string   "personality"
     t.string   "titles"
     t.string   "status"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(version: 20170112162805) do
     t.boolean  "appears_in_season_7"
     t.boolean  "appears_in_season_8"
     t.boolean  "appears_in_season_9"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "seasons"
     t.index ["house_id"], name: "index_characters_on_house_id", using: :btree
   end
 
@@ -63,13 +64,11 @@ ActiveRecord::Schema.define(version: 20170112162805) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "imageable_type"
-    t.integer  "imageable_id"
     t.string   "source"
     t.string   "caption"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "character_id"
   end
 
   add_foreign_key "characters", "houses"

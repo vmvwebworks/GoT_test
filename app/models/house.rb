@@ -18,9 +18,7 @@
 #
 
 class House < ApplicationRecord
-  has_many :characters, inverse_of: :house
-  has_many :images, as: :imageable
-
-  validates :name, :description, :sigil_url, presence: true
-  accepts_nested_attributes_for :images
+  has_many :characters
+  has_many :images
+  validates :name, presence: true
 end

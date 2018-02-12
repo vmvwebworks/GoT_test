@@ -1,22 +1,22 @@
 - line_number = 1
-h1 Importer
-- @csv.each do |register|
-  p
-    b
-    = "Line #{line_number}: "
-    a href="/characters/#{line_number}" #{register[:name]}
-  ul.list-group.list-group-flush
-    - @fields.each do |field|
-      - unless field.start_with? 'image'
-        - sym_field = field.to_sym
-        - if register[sym_field]
-          li.list-group-item
-            b
-              = field.capitalize
-            | #{register[sym_field]}
-      - if field.start_with? 'image'
-        - sym_field = field.to_sym
-        - if register[sym_field]
-          li.list-group-item
-            img src="#{register[sym_field]}"
-  - line_number = line_number + 1
+/ h1 Importer
+/ - @csv.each do |register|
+/   p
+/     b
+/     = "Line #{line_number}: "
+/     a href="/characters/#{line_number}" #{register[:name]}
+/   ul.list-group.list-group-flush
+/     - @fields.each do |field|
+/       - unless field.start_with? 'image'
+/         - sym_field = field.to_sym
+/         - if register[sym_field]
+/           li.list-group-item
+/             b
+/               = field.capitalize
+/             | #{register[sym_field]}
+/       - if field.start_with? 'image'
+/         - sym_field = field.to_sym
+/         - if register[sym_field]
+/           li.list-group-item
+/             img src="#{register[sym_field]}"
+/   - line_number = line_number + 1
