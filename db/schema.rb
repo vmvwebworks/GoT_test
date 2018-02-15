@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180212171405) do
 
-  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "characters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.integer  "house_id"
     t.text     "description",         limit: 65535
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180212171405) do
     t.string   "mother"
     t.string   "spouse"
     t.string   "children"
-    t.string   "siblings"
+    t.text     "siblings",            limit: 65535
     t.string   "lovers"
     t.string   "culture"
     t.boolean  "appears_in_season_1"
