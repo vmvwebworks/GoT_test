@@ -1,5 +1,5 @@
 ## Instrucciones
-He hecho algunos cambios, entre ellos usar base de datos por una MySQL.
+He hecho algunos cambios, entre ellos cambiar Postgres por una base de datos MySQL.
 Una vez pasadas las migraciones ejecutar un par de tareas SQL para
 solucionar un bug de MySQL.
 
