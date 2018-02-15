@@ -1,27 +1,33 @@
-An HBO Project
-================
-This is an HBO project, created to organize all our Game of Thrones data.
-The [Game of Thrones Wiki](http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki) 
-is gathering a lot of data and information about the serie, but with time, 
-it has become a bit complicated to keep it organized.
+## Instrucciones
+He hecho algunos cambios, entre ellos usar base de datos por una MySQL.
+Una vez pasadas las migraciones ejecutar un par de tareas SQL para
+solucionar un bug de MySQL.
 
-## Organizing the data
-The idea of this project is to transition from the flexibility of a wiki 
-to the structure of an app, keeping data can better organized and easier to share.
-The transition starts with Houses and Characters as a first step, before taking 
-over the rest of the data.
+`ALTER TABLE game_of_thrones_development.characters CONVERT TO CHARACTER SET utf8mb4;`
+`ALTER TABLE game_of_thrones_development.houses CONVERT TO CHARACTER SET utf8mb4;`
 
-## State of the project
-This project is open to the public as is the Wiki, meaning it is important to keep 
-in mind that any user can import and enter data. 
-It is already deployed in production and already in active use internally. 
-It is tested and managed by the producers and production team of Game of Thrones 
-who are the backers of this project.
+Lo ideal sería encolar la subida con Redis o algo por el estilo y dejar la súbida de manera "asincróna".
 
-## New features and bug tracker
-The management of the project is done within Gitlab. New features and bugs are 
-defined in the [issues](/../issues) section.
+## ISSUE 1
 
-## Data in development
-The house data can be added with the seed script from the [houses.json file](/data/houses.json).
-The character CSV file to be imported is located in the [data folder](/data/got_characters.csv)
+Create an importer for characters
+We are currently adding the characters manually with the form. We would need to be able to import a CSV file containing the data. I've put together a sample CSV file that we could use here.
+I would need to see the result of the import (if some lines don't work for example)
+
+
+## ISSUE 2
+
+Add images to characters
+
+
+In the CSV files, characters have one or multiple links to images of the Wikia.
+We need to add these images to each character within the importer. Only images with a source are valid.
+
+
+
+## ISSUE 3
+
+Link character with house
+
+Until now, all characters were being created, but we want to focus this iteration on the main characters only. We have decided to start from scratch the character list and only gather characters that have a house.
+Instead of adding the house manually, we realized we could add it to the CSV file and directly associate the character with a house. We added the "house" column, that contains the name of the house the character is from. We have noticed that sometimes, people entering the data were adding some extra spaces by mistake; probably some are still remaining.
